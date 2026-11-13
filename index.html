@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shon Beauty Salon Mukono</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#fff5f9;--card:#fff;--ink:#4a2040;--pink:#ff5fa2;--rose:#ff9ec7;--gold:#f7b733;--lav:#b98cff;--mint:#5fd4c4;--sh:0 10px 30px rgba(255,95,162,.2);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1226;--card:#3d1b37;--ink:#ffe6f2;--sh:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2a1226;--card:#3d1b37;--ink:#ffe6f2;--sh:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:'Quicksand',system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,.logo{font-family:'Pacifico',cursive;font-weight:400;margin:0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:var(--card);box-shadow:var(--sh);flex-wrap:wrap;gap:6px}
+.logo{font-size:1.4rem;color:var(--pink)}
+nav div{display:flex;gap:4px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--ink);font-weight:700;padding:6px 12px;border-radius:20px;transition:.3s}
+nav a:hover,nav a.on{background:var(--pink);color:#fff;transform:scale(1.08)}
+.page{display:none;padding:24px 16px 60px;max-width:1000px;margin:auto;animation:in .6s}
+.page.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(4deg)}}
+@keyframes rise{from{transform:translateY(105vh) scale(.6);opacity:0}15%{opacity:.9}to{transform:translateY(-10vh) scale(1.2);opacity:0}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,95,162,.6)}50%{box-shadow:0 0 0 16px rgba(255,95,162,0)}}
+@keyframes shine{to{background-position:200% center}}
+.hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.hearts span{position:absolute;bottom:0;animation:rise linear infinite}
+.hero{text-align:center;padding:30px 0}
+.hero h1{font-size:clamp(2.4rem,9vw,4.5rem);background:linear-gradient(90deg,var(--pink),var(--gold),var(--lav),var(--pink));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
+.hero p{font-size:1.2rem;font-weight:600}
+.face{width:min(240px,60vw);animation:fl 4s ease-in-out infinite;filter:drop-shadow(0 12px 18px rgba(255,95,162,.35))}
+.btn{display:inline-block;border:0;cursor:pointer;background:linear-gradient(135deg,var(--pink),var(--lav));color:#fff;font:700 1rem 'Quicksand',sans-serif;padding:13px 26px;border-radius:30px;text-decoration:none;animation:pulse 2s infinite;margin:6px}
+.btn.alt{background:linear-gradient(135deg,var(--mint),var(--gold));animation:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:22px;position:relative;z-index:1}
+.card{background:var(--card);border-radius:24px;padding:22px 10px;text-align:center;box-shadow:var(--sh);transition:.4s;font-weight:700;position:relative;z-index:1}
+.card:hover{transform:translateY(-10px) rotate(-2deg) scale(1.05)}
+.card i{display:block;font-style:normal;font-size:3.4rem;animation:fl 3s ease-in-out infinite}
+.card:nth-child(2n) i{animation-delay:.6s}.card:nth-child(3n) i{animation-delay:1.2s}
+.card:nth-child(4n+1){background:linear-gradient(160deg,var(--card),rgba(255,158,199,.3))}
+.card:nth-child(4n+2){background:linear-gradient(160deg,var(--card),rgba(185,140,255,.3))}
+.card:nth-child(4n+3){background:linear-gradient(160deg,var(--card),rgba(95,212,196,.3))}
+.card:nth-child(4n){background:linear-gradient(160deg,var(--card),rgba(247,183,51,.3))}
+h2{font-size:2rem;color:var(--pink);text-align:center;margin:10px 0}
+form,.panel{background:var(--card);padding:20px;border-radius:24px;box-shadow:var(--sh);position:relative;z-index:1;margin-top:16px}
+input,textarea{width:100%;padding:12px;border-radius:14px;border:2px solid var(--rose);background:var(--bg);color:var(--ink);font:600 1rem 'Quicksand',sans-serif;margin:6px 0}
+.stars{font-size:2.4rem;text-align:center;cursor:pointer;user-select:none}
+.stars span{display:inline-block;transition:.2s;filter:grayscale(1)}
+.stars span.on{filter:none;transform:scale(1.2)}
+.fb{background:var(--card);border-radius:20px;padding:14px 18px;margin:12px 0;box-shadow:var(--sh);position:relative;z-index:1;animation:in .5s;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.fb small{opacity:.7}
+.pill{display:inline-block;background:var(--pink);color:#fff;border-radius:20px;padding:4px 14px;font-weight:700}
+.stat{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.stat div{flex:1;min-width:120px;background:linear-gradient(135deg,var(--rose),var(--lav));color:#fff;border-radius:20px;padding:16px;text-align:center;font-size:2rem;font-weight:700}
+.stat small{display:block;font-size:.9rem}
+.x{border:0;background:none;font-size:1.4rem;cursor:pointer}
+footer{text-align:center;padding:24px 16px;font-weight:700;position:relative;z-index:1;border-top:3px solid var(--pink);background:var(--card);margin-top:30px}
+footer small{display:block;opacity:.75;margin-top:6px}
+.top{background:linear-gradient(90deg,#8e2b6e,var(--pink),#8e2b6e);background-size:200%;animation:shine 6s linear infinite;color:#fff;text-align:center;font-weight:700;font-size:.85rem;padding:6px 10px;position:relative;z-index:11}
+.top a{color:#fff}
+@keyframes pop{from{opacity:0;transform:scale(.4) rotate(-12deg)}}
+@keyframes mq{to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spk{to{transform:translateY(-34px) scale(.2) rotate(90deg);opacity:0}}
+@keyframes wob{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+.page.on .card{animation:pop .7s backwards cubic-bezier(.3,1.6,.5,1)}
+.page.on .card:nth-child(2){animation-delay:.06s}.page.on .card:nth-child(3){animation-delay:.12s}.page.on .card:nth-child(4){animation-delay:.18s}.page.on .card:nth-child(5){animation-delay:.24s}.page.on .card:nth-child(n+6){animation-delay:.3s}
+.card::after{content:"";position:absolute;inset:0;border-radius:24px;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);transition:.7s;pointer-events:none}
+.card:hover::after{transform:translateX(120%)}
+.rw{position:relative;width:min(280px,68vw);height:min(300px,72vw);margin:auto;display:grid;place-items:center}
+.ring{position:absolute;inset:0;margin:auto;width:100%;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--pink),var(--gold),var(--mint),var(--lav),var(--pink));animation:spin 6s linear infinite;opacity:.55;filter:blur(3px)}
+.rw .face{position:relative;width:78%}
+.badge{display:inline-block;letter-spacing:3px;text-transform:uppercase;font-size:.8rem;font-weight:700;border:2px solid var(--pink);color:var(--pink);padding:4px 16px;border-radius:4px}
+#rot{display:inline-block;transition:opacity .3s;font-weight:700;color:var(--pink);font-size:1.5rem}
+.mq{overflow:hidden;white-space:nowrap;margin:26px -16px;background:var(--card);padding:12px 0;box-shadow:var(--sh);position:relative;z-index:1}
+.mq div{display:inline-block;animation:mq 24s linear infinite;font-size:1.4rem;font-weight:700}
+.lock{text-align:center;max-width:360px;margin:16px auto}
+.lock i{font-size:3.4rem;font-style:normal;display:block;animation:wob 2s infinite}
+.stat div{animation:pop .7s backwards}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0;position:relative;z-index:1}
+.chip{border:2px solid var(--pink);background:var(--card);color:var(--ink);font:700 .95rem 'Quicksand',sans-serif;padding:8px 18px;border-radius:24px;cursor:pointer;transition:.3s}
+.chip.on,.chip:hover{background:var(--pink);color:#fff;transform:scale(1.1)}
+#pg{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.pr{padding:18px 10px}
+.pr .bub{width:100px;height:100px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;animation:fl 4s ease-in-out infinite;box-shadow:inset 0 -8px 16px rgba(0,0,0,.1),0 8px 16px rgba(255,95,162,.25)}
+.pr .bub i{font-size:3rem;animation:none}
+.pr b{display:block;margin-bottom:10px}
+.pr .btn{font-size:.85rem;padding:8px 16px;animation:none}
+.tag{position:absolute;top:10px;right:10px;background:var(--gold);color:#3a1d33;font-size:.7rem;padding:3px 10px;border-radius:12px;animation:wob 2s infinite}
+nav a{padding:5px 9px;font-size:.9rem}
+select{width:100%;padding:12px;border-radius:14px;border:2px solid var(--rose);background:var(--bg);color:var(--ink);font:600 1rem 'Quicksand',sans-serif;margin:6px 0}
+.cm{height:260px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:6px}
+.bb{max-width:78%;padding:8px 14px;border-radius:18px;font-weight:600;animation:pop .4s}
+.bb.me{align-self:flex-end;background:var(--pink);color:#fff}.bb.st{align-self:flex-start;background:var(--rose);color:#3a1d33}
+.cin{display:flex;gap:6px}.cin .btn{animation:none;margin:6px 0}
+.dir{display:inline-block;text-decoration:none;border:2px solid var(--pink);background:var(--card);color:var(--ink);font:700 .95rem 'Quicksand',sans-serif;padding:8px 18px;border-radius:24px;transition:.3s;margin:4px}
+.dir:hover{background:var(--pink);color:#fff;transform:scale(1.1)}
+.sc img{width:100%;height:150px;object-fit:cover;border-radius:18px;margin-bottom:8px}
+.th{cursor:pointer}
+</style></head><body>
+<div class="hearts" id="hearts"></div>
+<div class="top">📍 Mukono, off Kayunga Road &nbsp;•&nbsp; 📞 <a href="tel:0701123416">0701123416</a></div>
+<nav><span class="logo">💖 Shon Beauty</span><div id="nav">
+<a href="#home">Home</a><a href="#services">Services</a><a href="#products">Products</a><a href="#styles">Styles</a><a href="#book">Book</a><a href="#chat">Chat</a><a href="#feedback">Feedback</a><a href="#contact">Contact</a><a href="#admin">Admin</a></div></nav>
+
+<section class="page" id="home"><div class="hero"><div class="rw"><div class="ring"></div>
+<svg class="face" viewBox="0 0 200 220" aria-hidden="true"><path d="M30 120C20 40 70 5 100 5s80 35 70 115c-5 50-20 90-70 95S35 170 30 120Z" fill="#3a1d33"/><ellipse cx="100" cy="118" rx="58" ry="68" fill="#a8683f"/><path d="M45 95c20-10 40-35 55-55 20 25 40 45 62 55-5-50-30-75-60-75S42 50 45 95Z" fill="#3a1d33"/><ellipse cx="78" cy="118" rx="7" ry="9" fill="#2b1020"/><ellipse cx="122" cy="118" rx="7" ry="9" fill="#2b1020"/><circle cx="80" cy="115" r="2.5" fill="#fff"/><circle cx="124" cy="115" r="2.5" fill="#fff"/><circle cx="65" cy="138" r="11" fill="#ff7eb3" opacity=".6"/><circle cx="135" cy="138" r="11" fill="#ff7eb3" opacity=".6"/><path d="M82 152q18 22 36 0q-18 8-36 0Z" fill="#e0245e"/><path d="M62 100q16-12 30-2M108 98q14-10 30 2" stroke="#2b1020" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="45" cy="130" r="6" fill="#f7b733"/><circle cx="155" cy="130" r="6" fill="#f7b733"/></svg></div>
+<h1>Shon Beauty Salon</h1><p class="badge">Professional Women’s Beauty Salon</p><p>✨ <span id="rot">Glow</span> ✨</p><p>📍 Mukono, off Kayunga Road</p>
+<a class="btn" href="#feedback">⭐ Rate Us</a><a class="btn alt" href="#book">📅 Book Now</a><a class="btn" href="#products" style="animation:none">🛍️ Products</a></div>
+<div class="grid"><div class="card"><i>💅</i>Nails</div><div class="card"><i>💇‍♀️</i>Hair</div><div class="card"><i>💄</i>Makeup</div><div class="card"><i>👰</i>Bridal</div></div>
+<div class="mq"><div>💅 Nails ✨ Hair 💄 Makeup 👰 Bridal 🧖‍♀️ Facials 💆‍♀️ Massage 🌸 Wigs 💖 &nbsp; 💅 Nails ✨ Hair 💄 Makeup 👰 Bridal 🧖‍♀️ Facials 💆‍♀️ Massage 🌸 Wigs 💖 &nbsp; </div></div>
+<h2 style="margin-top:30px">Why Shon? 💖</h2><div class="grid"><div class="card"><i>😊</i>Friendly Service</div><div class="card"><i>🗣️</i>Your Voice Matters</div><div class="card"><i>🌟</i>Beautiful Results</div></div></section>
+
+<section class="page" id="services"><h2>Our Services</h2><div class="grid">
+<div class="card"><i>💅</i>Manicure</div><div class="card"><i>🦶</i>Pedicure</div><div class="card"><i>💇‍♀️</i>Braids</div><div class="card"><i>✂️</i>Cuts</div><div class="card"><i>🎀</i>Styling</div><div class="card"><i>💄</i>Makeup</div><div class="card"><i>🧖‍♀️</i>Facials</div><div class="card"><i>💆‍♀️</i>Massage</div><div class="card"><i>👰</i>Bridal</div><div class="card"><i>🌸</i>Wigs</div><div class="card"><i>🧴</i>Skincare</div><div class="card"><i>👑</i>Treatment</div></div></section>
+
+<section class="page" id="products"><h2>Our Products 🛍️</h2>
+<div class="chips" id="chips"><button class="chip on" data-c="all">✨ All</button><button class="chip" data-c="hair">💇‍♀️ Hair</button><button class="chip" data-c="skin">🌹 Skin</button><button class="chip" data-c="nails">💅 Nails</button><button class="chip" data-c="makeup">💄 Makeup</button></div>
+<div class="grid" id="pg"></div>
+<p style="text-align:center;font-weight:600;position:relative;z-index:1;margin-top:20px">Sample products shown • Ask us what is in stock 💕</p></section>
+
+<section class="page" id="styles"><h2>New Styles 💇‍♀️</h2><div class="grid" id="sg"></div></section>
+
+<section class="page" id="book"><h2>Book a Visit 📅</h2><form>
+<input id="bn" placeholder="Your name 🌸" maxlength="40"><input id="bp" type="tel" placeholder="Phone 📱" maxlength="20"><select id="bs"></select><input id="bd" type="date"><select id="bt"></select>
+<button class="btn" type="button" id="bk">Book 💖</button><div id="bm" style="text-align:center;font-weight:700"></div></form></section>
+
+<section class="page" id="chat"><h2>Chat with your Stylist 💬</h2><div class="panel"><input id="cname" placeholder="Your name 🌸" maxlength="40"><div class="cm" id="cm"></div><div class="cin"><input id="ci" placeholder="Type a message…"><button class="btn" id="cs" type="button">➤</button></div><p id="cn" style="text-align:center"></p></div><div style="text-align:center"><a class="btn alt" href="https://wa.me/256701123416">💬 WhatsApp instead</a></div></section>
+
+<section class="page" id="feedback"><h2>How was your visit? 💬</h2>
+<form id="ff"><div class="stars" id="stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+<input id="fn" placeholder="Your name 🌸" maxlength="40"><textarea id="fm" rows="3" placeholder="Say something sweet 💕" maxlength="300"></textarea>
+<button class="btn" type="button" id="send">Send 💌</button><div id="thx" style="text-align:center;font-weight:700"></div></form>
+<div id="list"></div></section>
+
+<section class="page" id="contact"><h2>Visit Us 💕</h2><div class="grid">
+<div class="card"><i>📍</i>Mukono<br><small>Off Kayunga Road</small></div>
+<div class="card"><i>📞</i><a style="color:inherit" href="tel:0701123416">0701123416</a></div>
+<div class="card"><i>💬</i><a style="color:inherit" href="https://wa.me/256701123416">WhatsApp</a></div>
+<div class="card"><i>🗺️</i><a style="color:inherit" href="https://www.google.com/maps/search/?api=1&query=Shon+Beauty+Salon+Mukono">Map</a></div></div>
+<div style="text-align:center;margin-top:20px"><a class="btn" href="tel:0701123416">📞 Call Now</a><a class="btn alt" href="https://wa.me/256701123416">💬 Chat</a></div>
+<h2 style="font-size:1.6rem;margin-top:26px">Get Directions 🧭</h2><div class="chips"><a class="dir" href="https://www.google.com/maps/dir/?api=1&destination=Shon+Beauty+Salon+Mukono">🗺️ Google Maps</a><a class="dir" href="https://maps.apple.com/?q=Shon+Beauty+Salon+Mukono">🍎 Apple Maps</a><a class="dir" href="https://waze.com/ul?q=Shon%20Beauty%20Salon%20Mukono">🚗 Waze</a><a class="dir" href="sms:0701123416">✉️ SMS</a><a class="dir" href="#book">📅 Book</a></div></section>
+
+<section class="page" id="admin"><h2>Admin 🔐</h2><div id="adm"></div></section>
+<footer>💖 Shon Beauty Salon Mukono • 0701123416<small>© 2026 Shon Beauty Salon. All rights reserved.</small><small>🎨 Designed &amp; developed by <b>Bwogi Alvin David</b></small></footer>
+
+<script>
+const $=s=>document.querySelector(s);
+// floating hearts
+const H=$("#hearts");["💖","✨","🌸","💅","💄","🎀"].forEach((e,i)=>{for(let k=0;k<3;k++){const s=document.createElement("span");s.textContent=e;s.style.cssText=`left:${Math.random()*95}%;font-size:${16+Math.random()*20}px;animation-duration:${9+Math.random()*10}s;animation-delay:${-Math.random()*15}s`;H.appendChild(s)}});
+// routing
+function route(){let h=(location.hash||"#home").slice(1);if(!$("#"+h))h="home";document.querySelectorAll(".page").forEach(p=>p.classList.toggle("on",p.id===h));document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+h));scrollTo(0,0)}
+addEventListener("hashchange",route);route();
+// data layer: shared db if available, else local
+let fbs=[],col=null,canEdit=false,rating=0;
+const LK="shon_fb";
+function localLoad(){try{return JSON.parse(localStorage.getItem(LK)||"[]")}catch(e){return[]}}
+function localSave(){try{localStorage.setItem(LK,JSON.stringify(fbs))}catch(e){}}
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function render(){
+ const L=$("#list");L.innerHTML=fbs.length?fbs.map(f=>`<div class="fb"><div><b>${esc(f.name||"Guest")}</b> ${"⭐".repeat(f.rating||0)}<br>${esc(f.msg||"")}</div></div>`).join(""):'<p style="text-align:center">Be the first to leave a review 💕</p>';
+ renderAdmin();
+}
+function renderAdmin(){
+ const A=$("#adm");
+ if(!window.UN&&$("#pw"))return;
+ if(!window.UN){A.innerHTML='<div class="panel lock"><i>🔒</i><h3>Staff Login</h3><input id="pw" type="password" placeholder="Password" autocomplete="off"><button class="btn" id="go">Unlock 🔓</button><p id="pe"></p></div>';
+  const go=async()=>{const b=new TextEncoder().encode($("#pw").value),h=[...new Uint8Array(await crypto.subtle.digest("SHA-256",b))].map(x=>x.toString(16).padStart(2,"0")).join("");if(h==="c4ec9289044513afddba2cdfda49456e8004e14d90ad3362ddb638b855ef2ba9"){window.UN=1;renderAdmin()}else{$("#pe").textContent="Wrong password ❌";$("#pw").value=""}};
+  $("#go").onclick=go;$("#pw").onkeydown=e=>{if(e.key==="Enter")go()};return}
+ const n=fbs.length,avg=n?(fbs.reduce((a,f)=>a+(f.rating||0),0)/n).toFixed(1):"–",happy=fbs.filter(f=>f.rating>=4).length;
+ A.innerHTML=`<div class="stat"><div>${n}<small>💌 Reviews</small></div><div>${avg}<small>⭐ Average</small></div><div>${happy}<small>😍 Happy</small></div></div><div style="text-align:center"><button class="btn alt" id="lo">Log out 🔒</button></div>`+
+ (n?fbs.map(f=>`<div class="fb"><div><b>${esc(f.name||"Guest")}</b> <span class="pill">${f.rating||0}⭐</span><br>${esc(f.msg||"")}<br><small>${new Date(f.t||0).toLocaleString()}</small></div><button class="x" data-id="${esc(f.id)}" title="Delete">🗑️</button></div>`).join(""):"<p style='text-align:center'>No feedback yet 🌸</p>");
+ $("#lo").onclick=()=>{window.UN=0;renderAdmin()};if(window.AX)AX(A);A.querySelectorAll(".x").forEach(b=>b.onclick=async()=>{const id=b.dataset.id;if(col){try{await col.doc(id).delete()}catch(e){}}else{fbs=fbs.filter(f=>f.id!==id);localSave();render()}});
+}
+// stars
+document.querySelectorAll("#stars span").forEach((s,i)=>s.onclick=()=>{rating=i+1;document.querySelectorAll("#stars span").forEach((x,j)=>x.classList.toggle("on",j<rating))});
+$("#send").onclick=async()=>{
+ const name=$("#fn").value.trim(),msg=$("#fm").value.trim();
+ if(!rating){$("#thx").textContent="Tap a star first ⭐";return}
+ const f={name,msg,rating,t:Date.now()},id="f"+f.t+Math.floor(Math.random()*999);
+ try{if(col)await col.doc(id).set(f);else{fbs.unshift({...f,id});localSave();render()}
+ $("#thx").textContent="Thank you! 💖";$("#fn").value=$("#fm").value="";rating=0;document.querySelectorAll("#stars span").forEach(x=>x.classList.remove("on"));
+ for(let i=0;i<20;i++){const s=document.createElement("span");s.textContent="💖";s.style.cssText=`left:${Math.random()*100}%;font-size:28px;animation-duration:${2+Math.random()*3}s`;H.appendChild(s);setTimeout(()=>s.remove(),5000)}
+ }catch(e){$("#thx").textContent="Could not send, try again 🙏"}};
+// init
+fbs=localLoad();render();
+(async()=>{try{
+ const u=await claude.use("user");canEdit=!!(u&&u.canEdit());
+ const db=await claude.use("db");
+ if(db){col=db.collection("feedback");fbs=[];
+  col.orderBy("t","desc").onSnapshot(s=>{fbs=s.docs.map(d=>({...d.data(),id:d.id}));render()},()=>{col=null});}
+ else render();
+}catch(e){render()}})();
+// extra magic
+const W=["Glow","Shine","Smile","Sparkle","Bloom"];let wi=0;setInterval(()=>{const r=$("#rot");r.style.opacity=0;setTimeout(()=>{wi=(wi+1)%W.length;r.textContent=W[wi];r.style.opacity=1},300)},2200);
+let lt=0;addEventListener("pointermove",e=>{const n=Date.now();if(n-lt<70)return;lt=n;const s=document.createElement("span");s.textContent=["✨","💖","🌸"][n%3];s.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;pointer-events:none;z-index:99;animation:spk .9s forwards`;document.body.appendChild(s);setTimeout(()=>s.remove(),900)});
+// products
+const P=[["Argan Hair Oil","🧴","hair","#ffd1e3,#ff9ec7","New"],["Shea Hair Butter","🫙","hair","#fff0c2,#f7b733",""],["Silky Shampoo","🧼","hair","#d9f7f2,#5fd4c4","Popular"],["Wig Shine Spray","✨","hair","#e8d9ff,#b98cff",""],["Glow Face Cream","🌸","skin","#ffe0ef,#ff7eb3","Popular"],["Body Lotion","🧴","skin","#fff0c2,#ffd27a",""],["Rose Face Mist","🌹","skin","#ffd1e3,#ff5fa2","New"],["Aloe Gel","🌿","skin","#d9f7e0,#7fdc9a",""],["Nail Polish Set","💅","nails","#e8d9ff,#ff7eb3","Popular"],["Glitter Nail Art","💎","nails","#d9f1ff,#b98cff","New"],["Lipstick","💄","makeup","#ffc2d6,#e0245e","Popular"],["Lip Gloss","💋","makeup","#ffd1e3,#ff5fa2",""],["Eyeshadow Palette","🎨","makeup","#e8d9ff,#5fd4c4","New"],["Mirror Compact","🪞","makeup","#fff0c2,#ff9ec7",""]];
+function showP(c){$("#pg").innerHTML=P.filter(p=>c==="all"||p[2]===c).map(p=>`<div class="card pr">${p[4]?`<span class="tag">${p[4]}</span>`:""}<div class="bub" style="background:linear-gradient(135deg,${p[3].split(",")[0]},${p[3].split(",")[1]})"><i>${p[1]}</i></div><b>${p[0]}</b><a class="btn" href="https://wa.me/256701123416?text=${encodeURIComponent("Hello Shon Beauty, I would like to order: "+p[0])}">Order 💬</a></div>`).join("")}
+showP("all");
+document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b));showP(b.dataset.c)});
+// booking, chat, styles
+let BK=[],CH=[],ST=[],MY=[],TM=[],uid=null,DB2=null,asg=null,openU=null,unT=null,TD="";
+const SV=["Manicure","Pedicure","Braids","Haircut","Styling","Makeup","Facial","Massage","Bridal","Wig install"];
+$("#bs").innerHTML=SV.map(s=>`<option>${s}</option>`).join("");
+$("#bt").innerHTML=["9:00 AM","10:00 AM","11:00 AM","12:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM"].map(s=>`<option>${s}</option>`).join("");
+$("#bd").min=new Date().toISOString().slice(0,10);
+$("#bk").onclick=async()=>{const b={name:$("#bn").value.trim(),phone:$("#bp").value.trim(),service:$("#bs").value,date:$("#bd").value,time:$("#bt").value,t:Date.now()};
+ if(!b.name||!b.phone||!b.date){$("#bm").textContent="Please fill name, phone and date 🌸";return}
+ try{if(DB2)await DB2.doc("bookings/b"+b.t+Math.floor(Math.random()*999)).set(b)}catch(e){}
+ const m=encodeURIComponent(`Hello Shon Beauty, I booked: ${b.service} on ${b.date} at ${b.time}. Name: ${b.name}, Phone: ${b.phone}`);
+ $("#bm").innerHTML=`Booked! 🎉<br><a class="btn alt" href="https://wa.me/256701123416?text=${m}">Confirm on WhatsApp 💬</a>`};
+function rc(){const c=$("#cm");if(!DB2||!uid){c.innerHTML='<p style="text-align:center">🔒 Sign in to chat privately here, or tap WhatsApp below 💕</p>';return}
+ c.innerHTML=MY.length?MY.map(m=>`<div class="bb ${m.from==="c"?"me":"st"}">${esc(m.text)}</div>`).join(""):'<p style="text-align:center">Say hi to your stylist 👋</p>';c.scrollTop=1e9}
+$("#cs").onclick=async()=>{const x=$("#ci").value.trim();if(!x||!DB2||!uid)return;$("#ci").value="";const t=Date.now();
+ try{await DB2.doc("chats/"+uid).set({name:$("#cname").value.trim()||"Guest",last:x,t});await DB2.doc("chats/"+uid+"/m/m"+t).set({from:"c",text:x,t})}catch(e){$("#cn").textContent="Could not send. Try WhatsApp 💬"}};
+$("#ci").onkeydown=e=>{if(e.key==="Enter")$("#cs").click()};
+const SS=[["Knotless Braids","💖"],["Neat Bob Cut","✂️"],["Curly Updo","🎀"],["Twist Out","🌸"]];
+function rs(){$("#sg").innerHTML=(ST.length?ST:SS.map(s=>({title:s[0],emoji:s[1],sample:1}))).map(s=>`<div class="card pr sc"><span class="tag">${s.sample?"Sample":"New"}</span>${s.photo?`<img src="${esc(s.photo)}" alt="">`:`<div class="bub"><i>${s.emoji||"💇‍♀️"}</i></div>`}<b>${esc(s.title)}</b>${s.note?`<small>${esc(s.note)}</small>`:""}${canEdit&&s.id?`<br><button class="x" data-d="styles/${s.id}">🗑️</button>`:""}</div>`).join("");
+ document.querySelectorAll("#sg .x").forEach(b=>b.onclick=()=>DB2.doc(b.dataset.d).delete())}
+rs();rc();
+function drawT(){const v=$("#tv");if(!v)return;v.innerHTML=openU?`<div class="panel"><div class="cm" id="tc">${TM.map(m=>`<div class="bb ${m.from==="s"?"me":"st"}">${esc(m.text)}</div>`).join("")}</div><div class="cin"><input id="ti" placeholder="Reply…" value="${esc(TD)}"><button class="btn" id="ts" type="button">➤</button></div></div>`:"";
+ if(!openU)return;$("#tc").scrollTop=1e9;$("#ti").oninput=e=>TD=e.target.value;
+ $("#ts").onclick=async()=>{const x=$("#ti").value.trim();if(!x)return;TD="";const t=Date.now();try{await DB2.doc("chats/"+openU+"/m/m"+t).set({from:"s",text:x,t});await DB2.doc("chats/"+openU).update({last:"You: "+x,t})}catch(e){}}}
+window.AX=A=>{
+ if(!canEdit)A.insertAdjacentHTML("beforeend",'<p class="panel" style="text-align:center">🔑 Open this page signed in as the salon owner to see bookings, reply to chats and post styles.</p>');
+ A.insertAdjacentHTML("beforeend",`<h2>📅 Bookings</h2>`+(BK.length?BK.map(b=>`<div class="fb"><div><b>${esc(b.name)}</b> 📱 ${esc(b.phone)}<br>${esc(b.service)} • ${esc(b.date)} ${esc(b.time)}</div><button class="xb x" data-k="bookings/${b.id}">🗑️</button></div>`).join(""):"<p style='text-align:center'>No bookings yet 🌸</p>")+`<h2>💬 Chats</h2>`+(CH.length?CH.map(c=>`<div class="fb th" data-u="${c.id}"><div><b>${esc(c.name||"Guest")}</b><br><small>${esc(c.last||"")}</small></div><span>➡️</span></div>`).join(""):"<p style='text-align:center'>No chats yet</p>")+`<div id="tv"></div><h2>💇‍♀️ Post a new style</h2><div class="panel"><input id="st" placeholder="Style name"><input id="sn" placeholder="Short note ✨"><input id="sf" type="file" accept="image/*"><button class="btn" id="sp" type="button">Post 🎀</button><p id="sm"></p></div>`);
+ A.querySelectorAll(".xb").forEach(b=>b.onclick=()=>DB2&&DB2.doc(b.dataset.k).delete());
+ A.querySelectorAll(".th").forEach(b=>b.onclick=()=>{openU=b.dataset.u;if(unT)unT();unT=DB2.collection("chats/"+openU+"/m").orderBy("t").onSnapshot(s=>{TM=s.docs.map(d=>d.data());drawT()})});
+ drawT();
+ $("#sp").onclick=async()=>{const title=$("#st").value.trim();if(!title||!DB2)return;let photo="";const f=$("#sf").files[0];
+  try{if(f&&asg){const r=await asg.upload(f);photo=r.url}await DB2.doc("styles/s"+Date.now()).set({title,note:$("#sn").value.trim(),photo,t:Date.now()});$("#sm").textContent="Posted! 🎉"}catch(e){$("#sm").textContent="Could not post, sign in as owner"}}};
+(async()=>{try{const u=await claude.use("user");uid=u&&u.id?await u.id():null;canEdit=!!(u&&u.canEdit());
+ DB2=await claude.use("db");asg=await claude.use("assets");rc();if(!DB2)return;
+ DB2.collection("styles").orderBy("t","desc").onSnapshot(s=>{ST=s.docs.map(d=>({...d.data(),id:d.id}));rs()},()=>{});
+ if(uid)DB2.collection("chats/"+uid+"/m").orderBy("t").onSnapshot(s=>{MY=s.docs.map(d=>d.data());rc()},()=>{});
+ if(canEdit){DB2.collection("bookings").orderBy("t","desc").onSnapshot(s=>{BK=s.docs.map(d=>({...d.data(),id:d.id}));renderAdmin()},()=>{});
+  DB2.collection("chats").orderBy("t","desc").onSnapshot(s=>{CH=s.docs.map(d=>({...d.data(),id:d.id}));renderAdmin()},()=>{})}
+ }catch(e){rc()}})();
+</script></body></html>
